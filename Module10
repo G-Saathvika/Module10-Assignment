@@ -1,0 +1,72 @@
+PROBLEM-1:
+
+Student- 
+	Table Name - Student
+	Primary key - StdNo
+	Columns - StdNo,StdName,StdAddress,StdCity,StdAddress,StdZip,StdEmail
+	
+Loan-
+	Table Name - Loan
+	Primary key - LoanNo
+	Columns - LoanNo,ProcDate, DisbMethod, DisbBank, DateAuth, NoteValue, Subsidized, Rate
+	
+Instituion-
+	Table Name - Institution
+	Primary key - InstId
+	Columns - InstID, InstName, InstMascot
+	
+Lender-
+	Table Name - Lender
+	Primary key - LenderNo
+	Columns - LenderNo, LendName
+	
+
+PROBLEM-2:
+
+StdNo NOT NULL
+InstID NOT NULL
+LenderNo NOT NULL
+FOREIGN KEY(StdNo) REFERENCES Student(StdNo)
+FOREIGN KEY(InstID) REFERENCES Institution(InstID)
+FOREIGN KEY(LenderNo) REFERENCES Lender(LenderNo)
+
+
+PROBLEM-3:
+
+M-N relationship doesn't exist in given ERD
+
+
+PROBLEM-4:
+
+DisburseLine
+
+LOanNO NOT NULL
+FOREIGN KEY(LoanNo) REFERENCES Loan(LoanNo)
+
+PrimaryKey of DisburseLine is combination of LoanNo and DateSent
+
+
+PROBLEM-5:
+
+Account-
+Primary key - Acctid
+Foreign key- 
+Columns - Acctid,AcctName,Balance
+
+
+PROBLEM-6:
+
+Owner- 
+	Primary key - OwnId
+	Columns - OwnId, OwnName, OwnPhone
+	
+Property- 
+	Primary key - PropId
+	Columns - PropId, BldgName, UnitNo, Bdrms
+	
+Shares-
+	Primary key - OwnId,PropId
+	Foreign keys - OwnId,PropId
+	FOREIGN KEY(OwnId) REFERENCES Owner(OwnId)
+	FOREIGN KEY(PropId) REFERENCES Property(PropId)
+	Columns - PropId, OwnId
